@@ -2,6 +2,7 @@
   <div
     id="pop1"
     :class="Object.keys(this.$route.params).length > 0 ? 'open' : 'back'"
+    ref="pop1"
   >
     <h1>팝업 페이지1</h1>
     <div

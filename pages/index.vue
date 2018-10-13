@@ -27,25 +27,33 @@ export default {
   data() {
     return {
       pop1: '',
-      checkParam: Object.keys(this.$route.params).length > 0 ? true : setTimeout(()=>{false},500),
-      test: false,
+      checkParam: false,
+      popProp: ''
     }
   },
   methods: {
     pop() {
       this.pop1 = 'pop1';
       this.$router.push(`/${this.pop1}`);
-    }
+    },
   },
   created() {
-    // setTimeout(() => {
-    //   this.test = true;
-    // }, 1000);
+
     if (Object.keys(this.$route.params).length > 0) {
       this.checkParam = true;
+    }else {
+      this.checkParam = true;
+      setTimeout(()=>{
+        this.checkParam = false;
+      },500);
     }
-    
   },
+
+  watch: {
+    $route (to, from) {
+      console.log(from);
+    }
+  }
 }
 </script>
 
@@ -54,7 +62,5 @@ export default {
 <style>
   #index-wrap{width: 100%;height: 100%;background-color: #e3e3e3;overflow: hidden;}
   .pop-btn{width: 80px;height: 42px;background-color: rgb(248, 130, 52);position: absolute;bottom: 10%;left: calc(50% - 40px);color: #e3e3e3;text-align: center;line-height: 42px;cursor: pointer;}
- 
 
 </style>
-

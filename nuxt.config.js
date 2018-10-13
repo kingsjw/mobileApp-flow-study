@@ -2,6 +2,10 @@ module.exports = {
   /*
   ** Headers of the page
   */
+  // transition: 'right',
+  css: [
+    './assets/main.css'
+  ],
   head: {
     title: 'mobile-vue',
     meta: [
